@@ -1,6 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar, Splashscreen } from 'ionic-native';
+import { Storage } from '@ionic/storage';
 
 import { Home } from '../pages/home/home';
 import { List } from '../pages/list/list';
@@ -16,7 +17,7 @@ export class MyApp {
 
   pages: Array<{title: string, component: any}>;
 
-  constructor(public platform: Platform) {
+  constructor(public platform: Platform, public storage: Storage) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
@@ -25,6 +26,10 @@ export class MyApp {
       { title: 'List', component: List }
     ];
 
+	// ----- Get the value -------------------------------------
+	this.storage.set('key', 'value');
+	console.log('-----app.component.ts------ constructor() -----stored key --: ' + this.storage.get('key'));
+	
   }
 
   initializeApp() {
