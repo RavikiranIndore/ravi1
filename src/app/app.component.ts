@@ -27,7 +27,7 @@ export class MyApp {
     ];
 
 	// ----- Get the value -------------------------------------
-	this.storage.get('key', 'value');
+	this.storage.set('key', 'value');
 	console.log('-----app.component.ts------ constructor() -----stored key --: ' + this.storage.get('key'));
 	
   }
